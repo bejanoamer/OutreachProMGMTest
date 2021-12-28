@@ -1,12 +1,14 @@
 from google.cloud import firestore
-
+import streamlit as st
 # Add a new user to the database
 db = firestore.Client("outreachpro-60c24-firebase-adminsdk-ojzou-7681634a15.json")
-doc_ref = db.collection('users').document('alovelace')
+Q1 = st.text_input("type your first name")
+Q2 = st.text_input("type your last name")
+doc_ref = db.collection('{}').document('{}').format(Q1, Q2)
 doc_ref.set({
-    'first': 'Ada',
-    'last': 'Lovelace',
-    'born': 1815
+    'first': Q1,
+    'last': Q2,
+    'born': 2020
 })
 
 # Then query to list all users
