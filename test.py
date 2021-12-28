@@ -1,7 +1,7 @@
 from google.cloud import firestore
 
 # Add a new user to the database
-db = firestore.Client()
+db = firestore.Client("outreachpro-60c24-firebase-adminsdk-ojzou-7681634a15.json")
 doc_ref = db.collection('users').document('alovelace')
 doc_ref.set({
     'first': 'Ada',
